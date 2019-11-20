@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap');
+html { font-family: 'Source Sans Pro', sans-serif; background: linear-gradient(45deg, rgba(99, 72, 208, 1) 0%, rgba(252, 186, 188, 1) 100%); height: 100%; font-size: 16px; background-attachment: fixed; }
+input { font-family: inherit; }
+.wrap { width: 1000px; height: 700px; padding: 50px; margin: auto; background: #f6f3fb; box-shadow: 0 25px 200px rgba(0, 0, 0, 0.3); }
+.users-body { width: 40%; display: inline-block; vertical-align: top; }
+.users-search input { width: 100%; border: none; border-bottom: 1px solid rgba(0, 0, 0, 0.2); height: 60px; padding: 15px; background: transparent; outline: none; box-sizing: border-box; font-size: 16px; color: rgba(0, 0, 0, 0.7); font-weight: 300; }
+.user-block { display: flex; cursor:pointer; align-items: center; margin: 20px 0; background: #FFF; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.025); border-radius: 5px; position: relative; transition: 0.2s ease; overflow: hidden;}
+.user-block:hover{ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); }
+.user-block:after{ content:""; width:4px; background: #FFF; transition: 0.2s ease; height: 100%; position: absolute; top: 0; left:0; }
+.user-block.active:after{ background: #69adf5;  }
+.user-block:nth-child(1) { display: none; }
+.user-block .u-icon { display: inline-block; margin: 15px 10px 15px 15px; background: #d1d1da; height: 40px; width: 40px; border-radius: 50%; box-sizing: border-box; padding: 5px; font-weight: bold; font-size: 22px; text-align: center; }
+.user-block .u-info { display: inline-block; vertical-align: sub; }
+.user-block .u-name { font-weight: bold; }
+.user-block .u-desc { opacity: 0.5; }
+.user-block .u-date { position: absolute; top: 15px; right: 15px; font-size: 14px; color: rgba(0, 0, 0, 0.4); }
+.chat-body { width: 60%; display: inline-block; box-sizing: border-box; padding: 0 25px; }
+.chat-title { margin-bottom: 20px; border-bottom: 1px solid rgba(0, 0, 0, 0.2); height: 60px; box-sizing: border-box; }
+.chat-title h2 { font-size: 18px; margin: 0; }
+.chat-title p.desc { font-size: 14px; margin: 0; color: rgba(0, 0, 0, 0.4); font-weight: bold; }
+.chat-messages{ height: 550px; overflow: auto; }
+.chat-messages::-webkit-scrollbar { width: 5px; background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: #ccc }
+.chat-message { display: flex; position: relative; margin: 30px 0; }
+.chat-message:nth-child(1) { display: none; }
+.chat-message .c-icon { display: inline-block; margin: 0 10px 0 0; background: #d1d1da; height: 40px; width: 40px; border-radius: 50%; box-sizing: border-box; padding: 5px; font-weight: bold; font-size: 22px; text-align: center; }
+.chat-message .c-text { background: #d1d1da; border-radius: 20px; padding: 10px 15px; }
+.chat-message .c-date { position: absolute; top: 100%; left: 0; width: 40px; font-size: 12px; text-align: center; }
+.chat-message.self { justify-content: flex-end; margin-right: 15px; }
+.chat-message.self .c-icon { display: none; }
+.chat-message.self .c-text { background: #69adf5; color:#FFF; }
+.chat-message.self .c-date { right: 0; left: unset; }
+.chat-message.server { justify-content: center; margin-right: 15px; }
+.chat-message.server .c-icon { display: none; }
+.chat-message.server .c-text { background: transparent; color: rgba(0, 0, 0, 0.3); padding: 0; }
+.chat-message.server .c-date { top: unset; bottom: 100%; right: 0; left: 0; margin: auto; color: rgba(0, 0, 0, 0.3); }
+.chat-input { background: #FFF; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.025); border-radius: 5px; position: relative; margin-top: 35px; }
+.chat-input input[type='text'] { width: 100%; padding: 15px 50px; font-size: 14px; box-sizing: border-box; border: none; background: transparent; outline: none; }
+.chat-input input[type='submit'] { width: 40px; height: 40px; background: #69adf5; border-radius: 50%; box-shadow: 0 20px 15px rgba(105, 173, 245, 0.5); border: none; color: #FFF; font-size: 35px; line-height: 0; position: absolute; right: 10px; top: 5px; outline: none; cursor: pointer; }
+#overlay { position: fixed; overflow: auto; background-color: rgba(0, 0, 0, 0.6); left: 0; right: 0; top: 0; bottom: 0; z-index: 1000; visibility: hidden; opacity: 0; transition: visibility 0s ease 0.2s, opacity 0.2s ease 0s; }
+#overlay.active { opacity: 1; visibility: visible; padding-right: 17px; transition: visibility 0s ease 0s, opacity 0.2s ease 0.01s; }
+#overlay .bglayer { position: absolute; left: 0; right: 0; top: 0; bottom: 0; opacity: 0; }
+.modal_block { position: absolute; right: 0; left: 0; visibility: hidden; top: 20px; width: 600px; background-color: #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.55); margin: 10% auto 10%; z-index: 1001; box-sizing: border-box; padding: 30px; transition: visibility 0s ease 0.2s, opacity 0.2s ease 0s, top 0.2s ease 0s; opacity: 0; }
+.modal_block.active { top: 0; right: 17px; visibility: visible; opacity: 1; transition: visibility 0s ease 0s, opacity 0.2s ease 0.01s, top 0.2s ease 0.01s; }
+.modal_block input[type='text'] { box-sizing:border-box;display: block; font-size: 16px; padding: 8px; outline: none; width: 100%; border-radius: 4px; border:none; background-color: #efefef; margin-bottom: 15px;  }
+.modal_block input[type='submit'] { display: block; font-size: 16px; padding: 8px; outline: none; width: 100%; border-radius: 4px; border:none; color:#FFF; background-color: #2a8cf1; cursor:pointer; }
+.modal_block_push { z-index:1500;position: fixed; padding: 20px; bottom: -500px; opacity: 0; left: 0; right: 0; margin: auto; display: inline-block; width: 500px; background-color: #FFF; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); border-left: 5px solid transparent; transition:0.2s ease; }
+.modal_block_push.show{ bottom: 50px; opacity: 1; }
+.modal_block_push.success{ border-color: #4CAF50; }
+.modal_block_push.error{ border-color: #F91C1D; }
+.modal_block_push .header{ font-weight: bold; font-size: 18px; padding-bottom: 10px }
+.modal_block_push .text{ font-size: 16px; }
+#emojibut{ width:48px; height: 48px; background: center / 28px no-repeat url(../img/emoji/emoticon.png); opacity: 0.3; position: absolute; top:0; left:0; border:none; outline:none; cursor:pointer;}
+.emoji-block { position: absolute; bottom: 40px; background: #FFF; border-radius: 5px; box-shadow: 0 1px 10px rgba(0, 0, 0, 0.02); padding: 10px; visibility: hidden; opacity: 0; transition: visibility 0s ease 0.2s, all 0.2s ease 0s; }
+.emoji-block.active{ bottom: 60px; opacity: 1; visibility: visible; padding-right: 17px; transition: visibility 0s ease 0s, all 0.2s ease 0.01s; }
+.ic_emoji { display: inline-block; vertical-align: top; width: 28px; height: 28px; background: center / cover no-repeat; opacity: 0.4; }
+.emoji-block .ic_emoji { cursor:pointer; }
+.chat-message .ic_emoji { vertical-align: middle; }
+.ic_emoji + .ic_emoji{ margin-left: 10px;  }
+.ic_emoji.ic_smile{ background-image: url(../img/emoji/emoticon-smile.svg); }
+.ic_emoji.ic_cool{ background-image: url(../img/emoji/emoticon-cool.svg); }
+.ic_emoji.ic_devil{ background-image: url(../img/emoji/emoticon-devil.svg); }
+.ic_emoji.ic_frown{ background-image: url(../img/emoji/emoticon-frown.svg); }
+.ic_emoji.ic_tongue{ background-image: url(../img/emoji/emoticon-tongue.svg); }
+.ic_emoji.ic_wink{ background-image: url(../img/emoji/emoticon-wink.svg); }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/main.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class='wrap'>
+		<div class='users-body'>
+			<div class="users-search">
+				<input type="text" id='usersSearch' placeholder="Поиск">
+			</div>
+			<div class='users-container' id='users'>
+				<div class="user-block">
+					<div class='u-icon'>М</div>
+					<div class='u-info'>
+						<div class='u-name'>Макс</div>
+						<div class='u-desc'></div>
+					</div>
+					<div class='u-date'>13 Ноя 13:32</div>
+				</div>
+				<div class="user-block" data-id='0'>
+					<div class='u-icon ic_people'></div>
+					<div class='u-info'>
+						<div class='u-name'>Общая комната</div>
+						<div class='u-desc'></div>
+					</div>
+					<div class='u-date'>13 Ноя 13:32</div>
+				</div>
+			</div>
+		</div><div class='chat-body'>
+			<div class='chat-title' id='chat-title'>
+				<h2>Общая комната</h2>
+				<p class='desc'>N участников</p>
+			</div>
+			<div class='chat-container'>
+				<div class='chat-messages' id='msgs'>
+					<div class="chat-message">
+						<div class='c-icon'>М</div>
+						<div class='c-text'>
+							Hello world!
+						</div>
+						<div class='c-date'>13:32</div>
+					</div>
+				</div>
+				<div class='chat-input'>
+					<div class='emoji-block' id='emoji-block'></div>
+					<form id='chatInput'>
+						<input type="button" id='emojibut'>
+						<input id='inputField' required name='msg' type="text" placeholder="Введите сообщение...">
+						<input type="submit" value=">">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="overlay" class="active">
+    <div class="bglayer"></div>
+    <div class="modal_block active">
+      <form id="login_form">
+        <h3>Вход в чат</h3>
+        <label>
+          <input required type="text" name="login" placeholder="Логин" maxlength="15">
+        </label>
+        <input class="big-button blue-invert" type="submit" value="Войти">
+        <p class="note center">Вход осуществляется по логину</p>
+      </form>
+    </div>
+  </div>
+  <div id='pushModal' class='modal_block_push'>
+    <div class='header'></div>
+    <div class='text'></div>
+  </div>
+</body>
+</html>

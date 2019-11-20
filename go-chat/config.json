@@ -1,0 +1,5 @@
+{
+	"SendPastMessages": true,
+	"CountPastMessages": 5,
+	"SendServerMessages": true
+}
